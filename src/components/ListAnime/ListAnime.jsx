@@ -1,8 +1,7 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react'
-import { Anime } from '../Anime/Anime';
+import { useEffect, useState } from 'react';
 import '../../index.scss';
-
+import { Anime } from '../Anime/Anime';
 const ListAnime = () => {
   const [animes, setAnimes] = useState([]);
   const [resultados, setResultados] = useState([]);
@@ -28,18 +27,31 @@ const ListAnime = () => {
       })
   },[]);
 
-
   return (
-    <div className="ListAnime container">
-            <input type="text" id="valor" placeholder="Buscar..." onChange={buscar}/>
-      {
-        resultados.map(anime => {
-          return <Anime key={anime.id} id={anime.id} src={anime.image} name={anime.title} nameOriginal={anime.original_title} director={anime.director} anio={anime.release_date} description={anime.description}></Anime>
-        })
-      }
-    </div>
-  )
-}
+    <>
+    {/* <input type="text" id="valor" placeholder="Buscar..." onChange={buscar}/> */}
+
+      <div className="App container ">
+        <div className="row">
+          {resultados.map((anime) => {
+            return (
+              <Anime
+              key={anime.id} 
+              id={anime.id} 
+              src={anime.image} 
+              name={anime.title} 
+              nameOriginal={anime.original_title} 
+              director={anime.director} 
+              anio={anime.release_date} 
+              description={anime.description}
+              ></Anime>
+            );
+          })}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export { ListAnime };
 

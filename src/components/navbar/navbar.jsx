@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import vite from '../../assets/vite.svg'
-import '../../index.scss'
+import vite from '../../assets/vite.svg';
+import '../../index.scss';
 
 function NavBar() {
 
@@ -53,4 +52,5 @@ function NavBar() {
   )
 }
 
-export {NavBar}
+export { NavBar };
+

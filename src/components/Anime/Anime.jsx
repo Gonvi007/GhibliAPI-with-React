@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
@@ -7,33 +7,39 @@ import "../../index.scss";
 const Anime = ({id, name, src, nameOriginal, anio, director, description}) =>{
   const [show, setShow] = useState(false);
 
+
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
     return (
-        <div className="container">
-          <Card key={id} style={{ width: '18rem' }}>
+      <div className="col-3">
+      <Card key={id} style={{ width: '18rem' }}>
           <Card.Img variant="top" src={src} />
           <Card.Body>
-            <Card.Title> Titulo: {name}</Card.Title>
-            <Card.Text>
-              Titulo Original: {nameOriginal}
-            </Card.Text>
-            <Card.Text>
-              Año: {anio}
-            </Card.Text>
-            <Card.Text>
-              Director: {director}
-            </Card.Text>
+            <Card.Title> Titulo: {name}</Card.Title>            
             <Button variant="primary" onClick={handleShow}>
               Descripción
             </Button>
           </Card.Body>
           <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Description</Modal.Title>
+            <Modal.Title>Titulo: {name}</Modal.Title>
           </Modal.Header>
-          <Modal.Body>{description}</Modal.Body>
-          <Card.Img variant="top" src={src} />
+          <Modal.Body>
+            {description}
+            <Card.Title> Titulo Original: {nameOriginal}</Card.Title>
+            <Card.Text>
+            <div>
+                <b> Año:</b> {anio}
+              </div>
+              <div>
+                <b> Director: </b> {director}
+            </div>
+
+            </Card.Text>
+          </Modal.Body>
+
+          <Card.Img variant="top"  />
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
@@ -41,10 +47,7 @@ const Anime = ({id, name, src, nameOriginal, anio, director, description}) =>{
           </Modal.Footer>
                 </Modal>
                 </Card>
-        </div>
-
-
-      
+    </div>
     )
 }
 
